@@ -71,6 +71,12 @@ public class Customer {
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="
+				+ customerEmail + "]";
+	}
 	
 
 }

@@ -3,27 +3,32 @@
  */
 package com.ultramain.customerTableFilter;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
 /**
  * @author siravi
  * @version 1.0
  * @since Sep 12, 2025
  */
 public class CustomerOrder {
-	private String customerName;
+	private String orderId;
 	private String customerID;
-	private String orderDate;
+	private LocalDate orderDate;
 	private double orderAmount; //try to use the big decimal after finding the solution
 	
 	/**
 	 * @param orderId
 	 * @param customerID
-	 * @param orderDate
+	 * @param string
 	 * @param orderAmount
 	 */
-	public CustomerOrder(String orderId, String customerID, String orderDate, double orderAmount) {
+	public CustomerOrder(String orderId, String customerID, String string, double orderAmount) {
 		this.orderId = orderId;
 		this.customerID = customerID;
-		this.orderDate = orderDate;
+		DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		this.orderDate = LocalDate.parse(string, formater);
 		this.orderAmount = orderAmount;
 	}
 
@@ -58,14 +63,14 @@ public class CustomerOrder {
 	/**
 	 * @return the orderDate
 	 */
-	public String getOrderDate() {
+	public LocalDate getOrderDate() {
 		return orderDate;
 	}
 
 	/**
 	 * @param orderDate the orderDate to set
 	 */
-	public void setOrderDate(String orderDate) {
+	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
 	}
 
